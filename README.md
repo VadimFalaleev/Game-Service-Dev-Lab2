@@ -31,3 +31,34 @@
 - Выводы.
 
 ## Цель работы
+создание интерактивного приложения и изучение принципов интеграции в него игровых сервисов.
+
+## Задание 1
+### По теме видео практических работ 1-5 повторить реализацию игры на Unity. Привести описание выполненных действий.
+Ход работы: 
+
+- Я создал 3D проект в Unity версии 2022.1.0f1. В этом проекте переименовал сцену на _0Scene. В Unity asset store добавил ассет Dragon for Boss Monster : PBR. В проекте скачал и импортировал ассет. Далее создал копию префаба Grey в FourEvilDragonPBR/Prefab/DragonTerrorBringer, переименовал в Enemy и перенес в папку Scenes, после чего добавил префаб на сцену. Position и Rotation поставил на 0.
+
+![image](https://user-images.githubusercontent.com/54228342/193024646-1fef6ccf-8c82-4407-9e8c-0948eadf7170.png)
+
+- Далее в этой же папке нажимаем ПКМ -> create -> Animator Controller. Переименуем объект в EnemyCTRL. После чего создаем копию FlyIdle в FourEvilDragonPBR/Animations/DragonTerrorBringer и переносим в папку Scenes. Добавляем анимацию в EnemyCTRL.
+
+![image](https://user-images.githubusercontent.com/54228342/193028111-3fed92b2-0f4f-4fc5-8f6c-a180e64b06ab.png)
+
+- Изменяем префаб Enemy, поменяв Controller в компоненте Animator на EnemyCTRL и запустим проект, чтобы убедиться, что анимация рабоатет.
+
+![image](https://user-images.githubusercontent.com/54228342/193028984-9894f7ee-9a62-4a60-bfdf-ee29f2bbd0ad.png)
+
+- Создадим материал и назовем его Mat_Egg. Изменим цвет на тот, который больше подходит для яйца. Создадим на сцене объект Sphere и переименуем его в DragonEgg. Поставим все координаты на 0, Scale по Y изменим на 1.5, добавим компонент Rigidbody и материал, который только что создали.
+
+![image](https://user-images.githubusercontent.com/54228342/193031510-4d71dd61-0271-438b-a319-642ce42ca3f0.png)
+
+- Далее нажимаем на Untagged и Add Tag. Напротив List is Empty нажимаем на плюс и создаем тег с названием Dragon Egg, нажимая на save. Добавляем этот тег для объекта DragonEgg, делаем его префабом и удаляем со сцены.
+
+![image](https://user-images.githubusercontent.com/54228342/193033818-b050ab01-63e6-4660-b694-09232a244d92.png)
+![image](https://user-images.githubusercontent.com/54228342/193033833-f0f53f47-6de2-4e13-8313-38293f150653.png)
+![image](https://user-images.githubusercontent.com/54228342/193033862-8a967215-f058-41f5-b613-fb522ffabb13.png)
+
+- Создаем материал Mat_Shield и делаем ему произвольный цвет, меняем Rendering Mode на Transparent. После этого создаем на сцене объект Sphere, ставим ему координаты 0, -6, 0, а Scale меняем на 3, 3, 3. Добавляем объекту комопнент Rigidbody. Убираем галочку напротив Use Gravity, ставим галочку напротив Is Kinematic. Добавялем объекту материал, который только что создали и делаем его префабом.
+
+![image](https://user-images.githubusercontent.com/54228342/193037480-29aec7af-c449-4b4f-94f7-e383999b398c.png)
