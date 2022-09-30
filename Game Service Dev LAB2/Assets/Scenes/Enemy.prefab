@@ -2737,6 +2737,7 @@ GameObject:
   m_Component:
   - component: {fileID: 409426}
   - component: {fileID: 9569754}
+  - component: {fileID: 106564576561847194}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -2781,6 +2782,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &106564576561847194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ceb5190ac5ff53409ec5fc4bcb0796a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dragonEggPrefab: {fileID: 0}
+  speed: -4
+  timeBetweenEggDrops: 2
+  leftRightDistance: 10
+  chanceDirection: 0.01
 --- !u!1 &198178
 GameObject:
   m_ObjectHideFlags: 0
