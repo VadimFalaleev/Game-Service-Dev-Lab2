@@ -67,7 +67,7 @@
 
 ![image](https://user-images.githubusercontent.com/54228342/193250848-bf4d58ea-99b7-45ea-9cc2-a0af4efb7813.png)
 
-- Создаем скрипт EnemyDragon и добавляем его на объект Enemy. Настроим скрипт в инспекторе, поставим speed на -4, timeBetweenEggDragon на 2, chanceDirection на 0.01.
+- Создаем скрипт EnemyDragon и добавляем его на объект Enemy. Настроим скрипт в инспекторе, поставим speed на -4, timeBetweenEggDragon на 2, chanceDirection на 0.01. После всех настроек проверяем работу скрипта.
 
 ```c#
 
@@ -101,3 +101,5 @@ public class EnemyDragon : MonoBehaviour
 }
 
 ```
+
+![Видео 30-09-2022 153616](https://user-images.githubusercontent.com/54228342/193252564-d1eeb715-a3ac-4304-af10-8d810979749a.gif)
