@@ -66,3 +66,38 @@
 - Настроим правильно камеру. в компоненте Transform ставим Position на (0, 5, 10), Rotation на (20, -180, 0), Scale на (1, 1, 0). В компоненте Camera Projection меняем на Orthographic, size ставим на 12, Far на 50. После настройки камеры меняем соотношение сторон на 16:9.
 
 ![image](https://user-images.githubusercontent.com/54228342/193250848-bf4d58ea-99b7-45ea-9cc2-a0af4efb7813.png)
+
+- Создаем скрипт EnemyDragon и добавляем его на объект Enemy. Настроим скрипт в инспекторе, поставим speed на -4, timeBetweenEggDragon на 2, chanceDirection на 0.01.
+
+```c#
+
+using UnityEngine;
+
+public class EnemyDragon : MonoBehaviour
+{
+    public GameObject dragonEggPrefab;
+    public float speed = 1f;
+    public float timeBetweenEggDrops = 1f;
+    public float leftRightDistance = 10f;
+    public float chanceDirection = 0.1f;
+
+    private void Update()
+    {
+        Vector3 pos = transform.position;
+        pos.x += speed * Time.deltaTime;
+        transform.position = pos;
+
+        if (pos.x < -leftRightDistance)
+            speed = Mathf.Abs(speed);
+        else if (pos.x > leftRightDistance)
+            speed = -Mathf.Abs(speed);
+    }
+
+    private void FixedUpdate()
+    {
+        if (Random.value < chanceDirection)
+            speed *= -1;
+    }
+}
+
+```c#
