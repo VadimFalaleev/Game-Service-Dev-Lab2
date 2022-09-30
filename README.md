@@ -62,3 +62,7 @@
 - Создаем материал Mat_Shield и делаем ему произвольный цвет, меняем Rendering Mode на Transparent. После этого создаем на сцене объект Sphere, ставим ему координаты 0, -6, 0, а Scale меняем на 3, 3, 3. Добавляем объекту комопнент Rigidbody. Убираем галочку напротив Use Gravity, ставим галочку напротив Is Kinematic. Добавялем объекту материал, который только что создали и делаем его префабом.
 
 ![image](https://user-images.githubusercontent.com/54228342/193037480-29aec7af-c449-4b4f-94f7-e383999b398c.png)
+
+- Настроим правильно камеру. в компоненте Transform ставим Position на (0, 5, 10), Rotation на (20, -180, 0), Scale на (1, 1, 0). В компоненте Camera Projection меняем на Orthographic, size ставим на 12, Far на 50. После настройки камеры меняем соотношение сторон на 16:9.
+
+![image](https://user-images.githubusercontent.com/54228342/193250848-bf4d58ea-99b7-45ea-9cc2-a0af4efb7813.png)
