@@ -2794,7 +2794,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ceb5190ac5ff53409ec5fc4bcb0796a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dragonEggPrefab: {fileID: 0}
+  dragonEggPrefab: {fileID: 4525012944067465802, guid: 86daea848caf619409a79a7158808ab9, type: 3}
   speed: -4
   timeBetweenEggDrops: 2
   leftRightDistance: 10

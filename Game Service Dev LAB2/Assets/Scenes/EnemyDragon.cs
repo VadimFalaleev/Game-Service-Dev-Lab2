@@ -8,6 +8,19 @@ public class EnemyDragon : MonoBehaviour
     public float leftRightDistance = 10f;
     public float chanceDirection = 0.1f;
 
+    private void Start()
+    {
+        Invoke("DropEgg", 2f);
+    }
+
+    void DropEgg()
+    {
+        Vector3 myVector = new (0f, 5f, 0f);
+        GameObject egg = Instantiate(dragonEggPrefab);
+        egg.transform.position = transform.position + myVector;
+        Invoke("DropEgg", timeBetweenEggDrops);
+    } 
+
     private void Update()
     {
         Vector3 pos = transform.position;
