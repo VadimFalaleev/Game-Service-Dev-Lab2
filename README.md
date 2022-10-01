@@ -104,7 +104,7 @@ public class EnemyDragon : MonoBehaviour
 
 ![Видео 30-09-2022 153616](https://user-images.githubusercontent.com/54228342/193252564-d1eeb715-a3ac-4304-af10-8d810979749a.gif)
 
-- Вставим префаб DragonEgg в скрипт и добавим нужные строки. И после этого смотрим, что получилось.
+- Вставим префаб DragonEgg в скрипт и добавим нужные строки.
 
 ![image](https://user-images.githubusercontent.com/54228342/193411084-1cef4832-a296-440c-84bc-e24710d7fced.png)
 
@@ -125,12 +125,11 @@ private void Start()
 
 ```
 
-![Видео 01-10-2022 181238](https://user-images.githubusercontent.com/54228342/193411209-5569aaef-1f36-4647-b510-3f1ff7cb508f.gif)
-
-- Вернемся в Unity Asset Store, добавив ассет Fire & Spells Effects. Также скачаем и импортируем его в проект, как и первый ассет, после чего появится папка PyroParticles. Создадим на сцене объект Plane и переименуем его в Ground. Зададим объекты координаты (0, -8, 0), а размеры установим (5, 5, 5). В компоненте Mesh Renderer поменяем материал на FireParticleMeteorMaterial.
+- Вернемся в Unity Asset Store, добавив ассет Fire & Spells Effects. Также скачаем и импортируем его в проект, как и первый ассет, после чего появится папка PyroParticles. Создадим на сцене объект Plane и переименуем его в Ground. Зададим объекту координаты (0, -8, 0), а размеры установим (5, 5, 5). В компоненте Mesh Renderer поменяем материал на FireParticleMeteorMaterial.
 
 ![image](https://user-images.githubusercontent.com/54228342/193412044-da3aa5a7-af30-46b3-a0e6-2f9b7e0242f8.png)
 
-- Создадим скрипт DragonEgg и добавим его в компоненты префаба DragonEgg. Так же для красоты поменяем у объекта материал на другой из ассета FireParticalMeteor2Material.
+- Создадим скрипт DragonEgg и добавим его в компоненты префаба DragonEgg. Так же для красоты поменяем у объекта материал на другой из ассета FireParticalMeteor2Material. После всего посмотрим на результат недавних действий.
 
 ![image](https://user-images.githubusercontent.com/54228342/193412137-96855a12-053d-41d2-a20b-9f1723aa1699.png)
+![Видео 01-10-2022 183820](https://user-images.githubusercontent.com/54228342/193412281-c2af9f91-49bf-41f1-8036-e85c6ec4d838.gif)
