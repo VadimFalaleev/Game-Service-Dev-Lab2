@@ -167,3 +167,16 @@ public class DragonEgg : MonoBehaviour
 
 ![image](https://user-images.githubusercontent.com/54228342/193413307-29fb375e-e5db-40d6-9c9c-1b208d067ac5.png)
 ![image](https://user-images.githubusercontent.com/54228342/193413312-5f99fc1d-ec28-44e3-abb5-24c2d33c09b6.png)
+
+- Поработаем с компонентом Particle System у префаба DragonEgg. Поставим следующие настройки:
+1) Уберем галочку напротив Looping
+2) Start Delay ставим на 0.2
+3) Start LifeTime ставим на 0.4
+4) Start Speed ставим на 0
+5) Start Size ставим на 40
+6) Внутри Emission ставим Rate Over Time на 20, а count на 1
+7) Выключаем Emission, убирая галочку напротив названия
+8) Ставим галочку напротив Size Over Lifetime и выбираем кривую линию
+9) Внутри Renderer выбираем материал FireParticleSingleMaterial
+10) Max Particle Size ставим на 1
+
