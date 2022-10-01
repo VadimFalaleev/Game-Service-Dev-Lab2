@@ -133,3 +133,37 @@ private void Start()
 
 ![image](https://user-images.githubusercontent.com/54228342/193412137-96855a12-053d-41d2-a20b-9f1723aa1699.png)
 ![Видео 01-10-2022 183820](https://user-images.githubusercontent.com/54228342/193412281-c2af9f91-49bf-41f1-8036-e85c6ec4d838.gif)
+
+- Зайдем в скрипт DragonEgg и напишем в нем добавление частиц для яцйа и уничтожение его, чтобы объекты не копились на сцене и не занимали лишнюю память.
+
+```c#
+
+using UnityEngine;
+
+public class DragonEgg : MonoBehaviour
+{
+    public static float bottomY = -30f;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        ParticleSystem ps = GetComponent<ParticleSystem>();
+        var em = ps.emission;
+        em.enabled = true;
+
+        Renderer rend = GetComponent<Renderer>();
+        rend.enabled = false;
+    }
+
+    void Update()
+    {
+        if (transform.position.y < bottomY)
+            Destroy(this.gameObject);
+    }
+}
+
+```
+
+- Далее добавляем яйцу компонент Particle System, а объекту Ground ставим галочку напротив Is Trigger, чтобы скрипт работал.
+
+![image](https://user-images.githubusercontent.com/54228342/193413307-29fb375e-e5db-40d6-9c9c-1b208d067ac5.png)
+![image](https://user-images.githubusercontent.com/54228342/193413312-5f99fc1d-ec28-44e3-abb5-24c2d33c09b6.png)
