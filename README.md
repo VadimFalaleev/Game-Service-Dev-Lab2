@@ -180,3 +180,32 @@ public class DragonEgg : MonoBehaviour
 9) Внутри Renderer выбираем материал FireParticleSingleMaterial
 10) Max Particle Size ставим на 1
 
+- Создаем скрипт DragonPicker и повесим его на Main Camera. Удалим со сцены EnergyShield. Внутри нового скрипта запишем работу с энергетическим щитом.
+
+```c#
+
+using UnityEngine;
+
+public class DragonPicker : MonoBehaviour
+{
+    public GameObject energyShieldPrefab;
+    public int numEnergyShield = 3;
+    public float energyShieldBottomY = -6;
+    public float energyShieldRadius = 1.5f;
+
+    private void Start()
+    {
+        for(int i = 0; i < numEnergyShield; i++)
+        {
+            GameObject tShieldGo = Instantiate(energyShieldPrefab);
+            tShieldGo.transform.position = new(0, energyShieldBottomY, 0);
+            tShieldGo.transform.localScale = new(1 * i, 1 * i, 1 * i);
+        }
+    }
+}
+
+```
+
+- После написания скрипта повешаем префаб EnergyShield на этот скрипт в инспекторе. Запустим проект, чтобы убедиться, что все работает.
+
+![Видео 01-10-2022 210456](https://user-images.githubusercontent.com/54228342/193418446-2b36be30-03f4-4952-bfb3-581664c01b46.gif)
