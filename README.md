@@ -195,7 +195,7 @@ public class DragonPicker : MonoBehaviour
 
     private void Start()
     {
-        for(int i = 0; i < numEnergyShield; i++)
+        for(int i = 1; i <= numEnergyShield; i++)
         {
             GameObject tShieldGo = Instantiate(energyShieldPrefab);
             tShieldGo.transform.position = new(0, energyShieldBottomY, 0);
