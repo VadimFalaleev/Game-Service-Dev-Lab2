@@ -225,7 +225,104 @@ public class DragonPicker : MonoBehaviour
 
 ![image](https://user-images.githubusercontent.com/54228342/194352415-1ae42cbc-076b-41e3-b5ca-327ba9e99951.png)
 
-- В папке будет файл index.html. Его нужно открыть 
+- Попробуем с помощью sdk от яндекса встроить рекламу в игру. В папке будет файл index.html. Его нужно открыть и внутри head вставить следующий код. Он будет включать рекламу, как только игра запускается. Рекламу можно будет закрыть. Сверху слева будет кнопка, нажав которую можно снова открыть рекламу. Стоит учитывать, что в Яндекс.Играх ограничение по количеству рекламы(1 реклама на 3 минуты). То есть кнопка будет работать раз в 3 минуты.
+
+```c#
+
+<script>
+        let ysdk;
+
+        function initSDK() {
+            YaGames
+                .init()
+                .then(ysdk_ => {
+                    ysdk = ysdk_;
+                    ysdk.adv.showFullscreenAdv({
+                        callbacks: {
+                            onClose: wasShown => {
+                                console.info('First close')
+                            }
+                        }
+                    });
+                })
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const buttonElem = document.querySelector('#button');
+
+            let commonCounter = 0;
+            buttonElem.addEventListener('click', () => {
+                let counter = 0;
+
+                function getCallback(callbackName) {
+                    return () => {
+                        counter += 1;
+                        commonCounter += 1;
+
+                        if (commonCounter % 3 === 0) {
+                            throw new Error(`Test error in ${callbackName}, everything okey, it should not abort other code execution`);
+                        }
+
+                        console.info(`showFullscreenAdv; callback ${callbackName}; ${counter} call`);
+                    }
+                }
+
+                function makeSomethingImportant() {
+                    console.info('It\'s very important \'console.info\'');
+                }
+
+                if (ysdk) {
+                    ysdk.adv.showFullscreenAdv({
+                        callbacks: {
+                            onClose: makeSomethingImportant,
+                            onOpen: getCallback('onOpen'),
+                            onError: function (error) {
+                                console.error(error);
+                            },
+                            onOffline: getCallback('onOffline')
+                        }
+                    });
+                } else {
+                    makeSomethingImportant();
+                }
+
+            });
+        });
+    </script>
+
+```
+
+- В том же файле внутри body нужно вставить еще один скрипт.
+
+```c#
+
+<script>
+    (function(d) {
+        var t = d.getElementsByTagName('script')[0];
+        var s = d.createElement('script');
+        s.src = 'https://yandex.ru/games/sdk/v2';
+        s.async = true;
+        t.parentNode.insertBefore(s, t);
+        s.onload = initSDK;
+    })(document);
+</script>
+<button id="button">Показать рекламу</button>
+
+```
+
+- Сохраняем файл и выходим. Затем все файлы в папке билда архивируем в .zip. Заходим в консоль яндекс.игр, там ищем место, где можно загружать архив с игрой. Выбираем наш билд и ждем статуса "файл загружен", после чего нажимаем кнопку сохранить. 
+
+![image](https://user-images.githubusercontent.com/54228342/194359976-fcd8f5e5-58c3-454a-aa4b-95a08cde7ffd.png)
+
+- Статус изменится на "файл проверяется". Примерно через 4-5 минут нужно перезагрузить страницу и вместо статуса появится ссылка на черновик. Заходим по ссылке и проверяем, что все работает.
+
+![image](https://user-images.githubusercontent.com/54228342/194360363-b73d13ae-6b88-4520-9a36-9a07798d3b4a.png)
+
+- Игра запускается и реклама работает. Теперь убедимся, что sdk полностью функционирует, зайдя во вкладку реклама в консоли. Там нажмем кнопку подключить кнопку подключения Rewarded Video. Это понадобится в будущем для создания рекламы за вознаграждение. Нажмем кнопку "отчет по рекламе за 30 дней".
+
+![image](https://user-images.githubusercontent.com/54228342/194363982-c477742c-2ec7-42b6-b4d3-2155eb83c4a2.png)
+
+- Откроется окно с отчетом. Спустя некоторое время там появится статистика 
 
 ## Задание 3
 1. Произвести сравнительный анализ игровых сервисов Яндекс Игры и VK Game;
