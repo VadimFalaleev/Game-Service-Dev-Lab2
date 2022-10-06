@@ -322,7 +322,9 @@ public class DragonPicker : MonoBehaviour
 
 ![image](https://user-images.githubusercontent.com/54228342/194363982-c477742c-2ec7-42b6-b4d3-2155eb83c4a2.png)
 
-- Откроется окно с отчетом. Спустя некоторое время там появится статистика 
+- Откроется окно с отчетом. Спустя некоторое время там появится статистика вознаграждения за просмотренную рекламу. 
+
+![image](https://user-images.githubusercontent.com/54228342/194368101-8c3ea41a-3d7c-4038-be0b-a6baddbe439e.png)
 
 ## Задание 3
 1. Произвести сравнительный анализ игровых сервисов Яндекс Игры и VK Game;
